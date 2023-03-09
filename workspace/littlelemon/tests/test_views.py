@@ -10,7 +10,7 @@ class MenuViewTest(TestCase):
         
     def test_getall(self):
         items = Menu.objects.all()
-        data = MenuSerializer(items)
+        data = MenuSerializer(items,many = True)
         c = Client()
         response = c.get('/restaurant/menu/menu/')
         self.assertEqual(data,response.content)
